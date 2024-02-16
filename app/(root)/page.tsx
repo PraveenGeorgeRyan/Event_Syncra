@@ -33,7 +33,7 @@ export default async function Home() {
               perfection.
             </p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">Explore Your Events</Link>
+              <Link href={"/profile"}>Explore Your Events</Link>
             </Button>
           </div>
 

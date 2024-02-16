@@ -22,15 +22,33 @@ export type CreateEventParams = {
     title: string;
     description: string;
     location: string;
-    imageUrl: string;
+    imageUrl?: string;
     startDateTime: Date;
     endDateTime: Date;
-    categoryId: string;
-    price: string;
-    isFree: boolean;
-    url: string;
+    cateringRequired: boolean;
+    foodtype: string;
+    contact?: boolean;
+    contactNumber?: string;
+    // categoryId: string;
+    // url: string;
   };
   path: string;
+};
+
+export type CreateDemoEventParams = {
+  userId: string;
+  event: {
+    title: string;
+    description: string;
+    location: string;
+    imageUrl?: string;
+    startDateTime: Date;
+    endDateTime: Date;
+    cateringRequired: boolean;
+    foodtype: string;
+    contact?: boolean;
+    contactNumber?: string;
+  };
 };
 
 export type UpdateEventParams = {
@@ -38,15 +56,17 @@ export type UpdateEventParams = {
   event: {
     _id: string;
     title: string;
-    imageUrl: string;
+    imageUrl?: string;
     description: string;
     location: string;
     startDateTime: Date;
     endDateTime: Date;
-    categoryId: string;
-    price: string;
-    isFree: boolean;
-    url: string;
+    cateringRequired: boolean;
+    foodtype: string;
+    contact?: boolean;
+    contactNumber?: string;
+    // categoryId: string;
+    // url: string;
   };
   path: string;
 };
@@ -69,33 +89,35 @@ export type GetEventsByUserParams = {
   page: number;
 };
 
-export type GetRelatedEventsByCategoryParams = {
-  categoryId: string;
-  eventId: string;
-  limit?: number;
-  page: number | string;
-};
+// export type GetRelatedEventsByCategoryParams = {
+//   categoryId: string;
+//   eventId: string;
+//   limit?: number;
+//   page: number | string;
+// };
 
 export type Event = {
   _id: string;
   title: string;
   description: string;
-  price: string;
-  isFree: boolean;
-  imageUrl: string;
+  foodtype: string;
+  cateringRequired: boolean;
+  contact: boolean;
+  contactNumber: string;
+  imageUrl?: string;
   location: string;
   startDateTime: Date;
   endDateTime: Date;
-  url: string;
+  // url: string;
   organizer: {
     _id: string;
     firstName: string;
     lastName: string;
   };
-  category: {
-    _id: string;
-    name: string;
-  };
+  // category: {
+  //   _id: string;
+  //   name: string;
+  // };
 };
 
 // ====== CATEGORY PARAMS
@@ -104,32 +126,32 @@ export type CreateCategoryParams = {
 };
 
 // ====== ORDER PARAMS
-export type CheckoutOrderParams = {
-  eventTitle: string;
-  eventId: string;
-  price: string;
-  isFree: boolean;
-  buyerId: string;
-};
+// export type CheckoutOrderParams = {
+//   eventTitle: string;
+//   eventId: string;
+//   price: string;
+//   isFree: boolean;
+//   buyerId: string;
+// };
 
-export type CreateOrderParams = {
-  stripeId: string;
-  eventId: string;
-  buyerId: string;
-  totalAmount: string;
-  createdAt: Date;
-};
+// export type CreateOrderParams = {
+//   stripeId: string;
+//   eventId: string;
+//   buyerId: string;
+//   totalAmount: string;
+//   createdAt: Date;
+// };
 
-export type GetOrdersByEventParams = {
-  eventId: string;
-  searchString: string;
-};
+// export type GetOrdersByEventParams = {
+//   eventId: string;
+//   searchString: string;
+// };
 
-export type GetOrdersByUserParams = {
-  userId: string | null;
-  limit?: number;
-  page: string | number | null;
-};
+// export type GetOrdersByUserParams = {
+//   userId: string | null;
+//   limit?: number;
+//   page: string | number | null;
+// };
 
 // ====== URL QUERY PARAMS
 export type UrlQueryParams = {
