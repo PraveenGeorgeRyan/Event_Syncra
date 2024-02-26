@@ -20,7 +20,7 @@ const Collection = ({
   emptyStateSubtext,
   page,
   totalPages = 0,
-  collectionType,
+  // collectionType,
   urlParamName,
 }: CollectionProps) => {
   return (

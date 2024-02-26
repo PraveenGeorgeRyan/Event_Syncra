@@ -5,7 +5,7 @@ import { WebhookEvent } from "@clerk/nextjs/server";
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 import { clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-import { createDemoEvent } from "@/lib/actions/event.actions";
+// import { createDemoEvent } from "@/lib/actions/event.actions";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
     };
 
     const newUser = await createUser(user);
-    const demoEvent = await createDemoEvent(newUser);
+    // const demoEvent = await createDemoEvent(newUser);
 
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
@@ -82,7 +82,8 @@ export async function POST(req: Request) {
       });
     }
 
-    return NextResponse.json({ message: "OK", user: newUser, demoEvent });
+    // return NextResponse.json({ message: "OK", user: newUser, demoEvent });
+    return NextResponse.json({ message: "OK", user: newUser });
   }
 
   if (eventType === "user.updated") {

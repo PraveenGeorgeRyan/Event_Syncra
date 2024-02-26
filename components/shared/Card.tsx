@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import { IEvent } from "@/lib/database/models/event.model";
 import { formatDateTime } from "@/lib/utils";
 import { auth } from "@clerk/nextjs";
@@ -9,8 +8,8 @@ import { DeleteConfirmation } from "./DeleteConfirmation";
 
 type CardProps = {
   event: IEvent;
-  hasOrderLink?: boolean;
-  hidePrice?: boolean;
+  // hasOrderLink?: boolean;
+  // hidePrice?: boolean;
 };
 
 const Card = ({ event }: CardProps) => {
@@ -44,14 +43,9 @@ const Card = ({ event }: CardProps) => {
       )}
 
       <div className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4">
-        {/* {!hidePrice && <div className="flex gap-2">
-          <span className="p-semibold-14 w-min rounded-full bg-green-100 px-4 py-1 text-green-60">
-            {event.isFree ? 'FREE' : `$${event.price}`}
-          </span>
-          <p className="p-semibold-14 w-min rounded-full bg-grey-500/10 px-4 py-1 text-grey-500 line-clamp-1">
-            {event.category.name}
-          </p>
-        </div>}  */}
+        <p className="p-semibold-14 line-clamp-1 w-min rounded-full bg-grey-500/10 px-4 py-1 text-grey-500">
+          {event.category.name}
+        </p>
 
         <p className="p-medium-16 p-medium-18 text-grey-500">
           {formatDateTime(event.startDateTime).dateTime}
@@ -78,15 +72,15 @@ const Card = ({ event }: CardProps) => {
           />
         </Link> */}
         </div>
-        <div className="flex gap-3">
-          <p className="p-bold-10 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
+        {/* <div className="flex gap-3">
+          <p className="p-semibold-14 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
             {event.cateringRequired
               ? `Foodtype : ${event.foodtype}`
               : "Catering Not Required"}
           </p>
-        </div>
+        </div> */}
         <div className="flex gap-3">
-          <p className="p-bold-10 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
+          <p className="p-semibold-14 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
             {event.contact
               ? `Contact Number : ${event.contactNumber}`
               : "I don't want to be contacted"}

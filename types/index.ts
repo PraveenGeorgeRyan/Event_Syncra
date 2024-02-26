@@ -29,27 +29,27 @@ export type CreateEventParams = {
     foodtype: string;
     contact?: boolean;
     contactNumber?: string;
-    // categoryId: string;
+    categoryId: string;
     // url: string;
   };
   path: string;
 };
 
-export type CreateDemoEventParams = {
-  userId: string;
-  event: {
-    title: string;
-    description: string;
-    location: string;
-    imageUrl?: string;
-    startDateTime: Date;
-    endDateTime: Date;
-    cateringRequired: boolean;
-    foodtype: string;
-    contact?: boolean;
-    contactNumber?: string;
-  };
-};
+// export type CreateDemoEventParams = {
+//   userId: string;
+//   event: {
+//     title: string;
+//     description: string;
+//     location: string;
+//     imageUrl?: string;
+//     startDateTime: Date;
+//     endDateTime: Date;
+//     cateringRequired: boolean;
+//     foodtype: string;
+//     contact?: boolean;
+//     contactNumber?: string;
+//   };
+// };
 
 export type UpdateEventParams = {
   userId: string;
@@ -65,7 +65,7 @@ export type UpdateEventParams = {
     foodtype: string;
     contact?: boolean;
     contactNumber?: string;
-    // categoryId: string;
+    categoryId: string;
     // url: string;
   };
   path: string;
@@ -89,12 +89,12 @@ export type GetEventsByUserParams = {
   page: number;
 };
 
-// export type GetRelatedEventsByCategoryParams = {
-//   categoryId: string;
-//   eventId: string;
-//   limit?: number;
-//   page: number | string;
-// };
+export type GetRelatedEventsByCategoryParams = {
+  categoryId: string;
+  eventId: string;
+  limit?: number;
+  page: number | string;
+};
 
 export type Event = {
   _id: string;
@@ -114,10 +114,10 @@ export type Event = {
     firstName: string;
     lastName: string;
   };
-  // category: {
-  //   _id: string;
-  //   name: string;
-  // };
+  category: {
+    _id: string;
+    name: string;
+  };
 };
 
 // ====== CATEGORY PARAMS

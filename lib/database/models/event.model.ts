@@ -14,7 +14,7 @@ export interface IEvent extends Document {
   contact?: boolean;
   contactNumber?: string;
   //   url?: string;
-  //   category: { _id: string; name: string };
+  category: { _id: string; name: string };
   organizer: { _id: string; firstName: string; lastName: string };
 }
 
@@ -34,7 +34,7 @@ const EventSchema = new Schema({
   contact: { type: Boolean, default: false },
   contactNumber: { type: String },
   //   url: { type: String },
-  //   category: { type: Schema.Types.ObjectId, ref: "Category" },
+  category: { type: Schema.Types.ObjectId, ref: "Category" },
   organizer: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
